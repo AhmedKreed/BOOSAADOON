@@ -2,9 +2,9 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CopyButton = ({ text }: { text: string }) => {
+const CopyButton = ({ text }: { text: string | null }) => {
   const handleCopy = () => {
-    navigator.clipboard.writeText(text).then(() => {
+    navigator.clipboard.writeText(text!).then(() => {
       toast("الرابط تم نسخه بنجاح!");
     });
   };

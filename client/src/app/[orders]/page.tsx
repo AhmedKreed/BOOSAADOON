@@ -3,7 +3,11 @@ import { Meal } from "@/types";
 import { Key } from "react";
 import { headers } from "next/headers";
 
-const Page = async ({ params }) => {
+interface PageParams {
+  orders?: string; // Adjust the type as per your actual data structure
+}
+
+const Page = async ({ params }: { params: PageParams }) => {
   const { orders } = (await params) || {};
 
   const heads = headers();
@@ -46,7 +50,7 @@ const Page = async ({ params }) => {
     console.error("Error fetching order data:", error);
   }
 
-  const trackingLink = pathname;
+  const trackingLink: any = pathname;
   let content;
 
   if (orderData) {
