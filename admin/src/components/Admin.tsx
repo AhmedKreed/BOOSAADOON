@@ -16,13 +16,16 @@ const Admin = () => {
     const fetchAuthCheck = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/check`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Unauthorized access");
