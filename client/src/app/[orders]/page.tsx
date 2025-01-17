@@ -1,20 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CopyButton from "@/components/ui/meniUi/CopyButton";
 import { Meal } from "@/types";
 import { Key } from "react";
 import { headers } from "next/headers";
 
-interface PageParams {
-  orders?: string; // Adjust the type as per your actual data structure
-}
-
-const Page = async ({ params }: { params: PageParams }) => {
+const Page = async ({ params }: { params: any }) => {
   const { orders } = (await params) || {};
 
   const heads = headers();
 
   const pathname = (await heads).get("next-url");
 
-  let orderData = null;
+  let orderData: any = null;
   let statusText = "حالة غير معروفة";
 
   try {
