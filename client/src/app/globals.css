@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+.menu {
+  background: linear-gradient(to right, #fd8135, #db032f);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fd8135, #db032f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.p {
+  background: white !important;
+}
+
+.momenu {
+  transform: translateX(-50%);
+}
+.lineHeight {
+  line-height: 1.4 !important;
+}
+.noPadding {
+  padding: 0 !important;
+}
+
+.picContainer {
+  display: grid;
+  grid-template-areas:
+    "pic1"
+    "pic2"
+    "pic3"
+    "pic4"
+    "pic5"
+    "pic6"
+    "pic7";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 200px);
+  gap: 1px;
+}
+
+.picContainer div {
+  background-color: grey;
+  width: 100%;
+  height: 100%;
+}
+
+.picContainer > .pic1 {
+  grid-area: pic1;
+}
+.picContainer > .pic2 {
+  grid-area: pic2;
+}
+.picContainer > .pic3 {
+  grid-area: pic3;
+}
+.picContainer > .pic4 {
+  grid-area: pic4;
+}
+.picContainer > .pic5 {
+  grid-area: pic5;
+}
+.picContainer > .pic6 {
+  grid-area: pic6;
+}
+.picContainer > .pic7 {
+  grid-area: pic7;
+}
+
+/* Screens below 1024px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .picContainer {
+    grid-template-areas:
+      "pic1 pic1 pic2"
+      "pic1 pic1 pic3"
+      "pic4 pic5 pic5"
+      "pic6 pic7 pic7";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px 200px 200px;
+  }
+}
+
+/* Laptop version */
+@media (min-width: 1024px) {
+  .picContainer {
+    grid-template-areas:
+      "pic1 pic1 pic2 pic3 pic4"
+      "pic1 pic1 pic5 pic5 pic4"
+      "pic6 pic6 pic5 pic5 pic7";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+  }
+}
+
+@layer components {
+  .section {
+    @apply container mx-auto sm:px-8 px-6;
+  }
+  .padding-Y {
+    @apply py-16;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
