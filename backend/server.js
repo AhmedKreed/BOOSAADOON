@@ -20,7 +20,7 @@ app.use(cookieParser());
 // CORS POLICY
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:8080"],
+    origin: ["https://boosaadoonadmin.netlify.app", "http://localhost:8080"],
     credentials: true,
   })
 );
