@@ -6,17 +6,21 @@ import { useRouter } from "next/navigation";
 const LoginForm = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     (async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/check`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Unauthorized access");
@@ -45,14 +49,17 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(formData),
+        }
+      );
 
       const result = await response.json();
 

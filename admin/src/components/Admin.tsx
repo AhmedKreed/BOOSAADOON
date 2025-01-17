@@ -40,7 +40,9 @@ const Admin = () => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/order");
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/order`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -98,7 +100,7 @@ const Admin = () => {
     }
     try {
       const response = await fetch(
-        `http://localhost:5000/api/order/${orderId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/order/${orderId}`,
         {
           method: "PUT",
           headers: {
@@ -121,7 +123,7 @@ const Admin = () => {
   const deleteOrder = async (orderId: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/order/${orderId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/order/${orderId}`,
         {
           method: "DELETE",
           headers: {
