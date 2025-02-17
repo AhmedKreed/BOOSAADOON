@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Meal, Order } from "@/types";
 
 const Admin = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [messageIndex, setMessageIndex] = useState<number | null>(null);
@@ -14,7 +14,6 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchAuthCheck = async () => {
-      setLoading(true);
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/auth/check`,
@@ -116,7 +115,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
-      router.replace(router.asPath);
+      router.reload();
     }
   };
 
@@ -138,7 +137,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
-      router.replace(router.asPath);
+      router.reload();
     }
   };
 

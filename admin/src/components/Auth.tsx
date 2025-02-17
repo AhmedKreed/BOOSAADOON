@@ -5,11 +5,10 @@ import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/auth/check`,
