@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Meal, Order } from "@/types";
 
 const Admin = () => {
@@ -115,7 +115,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
-      window.location.reload();
+      router.refresh();
     }
   };
 
@@ -137,7 +137,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
-      window.location.reload();
+      router.refresh();
     }
   };
 
