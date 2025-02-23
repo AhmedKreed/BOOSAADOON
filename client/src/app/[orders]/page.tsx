@@ -1,6 +1,9 @@
-import CopyButton from "@/components/ui/meniUi/CopyButton";
 import { Meal } from "@/types";
+import dynamic from "next/dynamic";
 import { Key } from "react";
+const CopyButton = dynamic(() => import("@/components/ui/meniUi/CopyButton"), {
+  ssr: false,
+});
 
 const Page = async ({ params }) => {
   const { orders } = (await params) || {};
