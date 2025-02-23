@@ -2,10 +2,10 @@ import CopyButton from "@/components/ui/meniUi/CopyButton";
 import { Meal } from "@/types";
 import { Key } from "react";
 
-const Page = async ({ params }: { params: any }) => {
+const Page = async ({ params }) => {
   const { orders } = (await params) || {};
 
-  let orderData: any = null;
+  let orderData = null;
   let statusText = "حالة غير معروفة";
 
   try {
