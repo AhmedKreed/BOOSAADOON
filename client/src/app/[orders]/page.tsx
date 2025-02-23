@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import CopyButton from "@/components/ui/meniUi/CopyButton";
 import { Meal } from "@/types";
 import { Key } from "react";
@@ -102,13 +101,7 @@ const Page = async ({ params }: { params: any }) => {
               لتتبع طلبك، يرجى نسخ الرابط التالي:
             </p>
             <div className="flex items-center mt-2">
-              <input
-                type="text"
-                value={trackingLink}
-                readOnly
-                className="flex-1 p-2 border rounded-l-lg text-gray-700 bg-white"
-              />
-              <CopyButton text={trackingLink} />
+              <CopyButton />
             </div>
           </div>
         </div>
