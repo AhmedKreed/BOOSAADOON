@@ -115,7 +115,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
-      router.refresh();
+      window.location.reload();
     }
   };
 
@@ -137,7 +137,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
-      router.refresh();
+      window.location.reload();
     }
   };
 
