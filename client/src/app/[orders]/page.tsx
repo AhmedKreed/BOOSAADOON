@@ -1,14 +1,9 @@
 import CopyButton from "@/components/ui/meniUi/CopyButton";
 import { Meal } from "@/types";
 import { Key } from "react";
-import { headers } from "next/headers";
 
 const Page = async ({ params }: { params: any }) => {
   const { orders } = (await params) || {};
-
-  const heads = headers();
-
-  const pathname = (await heads).get("next-url");
 
   let orderData: any = null;
   let statusText = "حالة غير معروفة";
@@ -46,7 +41,6 @@ const Page = async ({ params }: { params: any }) => {
     console.error("Error fetching order data:", error);
   }
 
-  const trackingLink: any = pathname;
   let content;
 
   if (orderData) {
