@@ -115,6 +115,7 @@ const Admin = () => {
     } catch (error) {
       console.log("Error: " + (error as Error).message);
     } finally {
+      console.log("soo");
       window.location.reload();
     }
   };
