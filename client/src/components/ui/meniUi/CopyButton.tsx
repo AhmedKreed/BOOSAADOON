@@ -14,7 +14,7 @@ const CopyButton = () => {
   }, [router.asPath]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(pageURL!).then(() => {
+    navigator.clipboard.writeText(pageURL).then(() => {
       toast("الرابط تم نسخه بنجاح!");
     });
   };
