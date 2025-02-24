@@ -1,17 +1,17 @@
 "use client";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CopyButton = () => {
-  const router = useRouter();
+  const pathname = usePathname();
   const [pageURL, setPageURL] = useState("");
 
   useEffect(() => {
-    const fullURL = `${window.location.origin}${router.asPath}`;
+    const fullURL = `${window.location.origin}${pathname}`;
     setPageURL(fullURL);
-  }, [router.asPath]);
+  }, [pathname]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(pageURL).then(() => {
