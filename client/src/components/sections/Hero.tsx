@@ -28,7 +28,7 @@ const Hero = () => {
       </div>
       <div className="text-center h-16">
         <Link
-          href={""}
+          href={"/menu"}
           className="menu text-bg rounded-lg text-2xl sm:text-2xl sm:px-16 sm:py-4 px-12 py-2 font-bold"
         >
           اطلب الان

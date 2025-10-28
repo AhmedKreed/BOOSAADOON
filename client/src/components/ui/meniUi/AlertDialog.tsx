@@ -67,7 +67,8 @@ const AlertDialogs = ({
         meals: [],
         fullPrice: 0,
       });
-      router.push("/" + result.id);
+
+      router.replace("/" + result.id);
     } catch {
       setError("حدث خطأ نرجو اعادة المحاولة");
     } finally {
