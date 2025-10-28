@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm run dev --prefix client",
-    "admin": "npm run dev --prefix admin"
+    "client": "npm run dev --prefix client"
   },
   "keywords": [],
   "author": "",

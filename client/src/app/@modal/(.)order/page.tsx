@@ -2,7 +2,7 @@ import CartOrders from "@/components/sections/CartOrders";
 
 const page = () => {
   return (
-    <div className="relative min-h-screen py-10 px-5 bg-custom-pattern">
+    <div className="fixed flex justify-center items-center bg-[#000c] h-screen w-screen left-0 top-0 ">
       <CartOrders />
     </div>
   );

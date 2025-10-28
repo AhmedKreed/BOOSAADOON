@@ -14,6 +14,7 @@ import { Id, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Dialogs = () => {
+  const isFormValid = useRef(null);
   const toastIdRef = useRef<Id | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,16 +32,15 @@ const Dialogs = () => {
     return regex.test(phone);
   };
 
-  const isFormValid = () => {
+  isFormValid.current = () => {
     const isPhoneValid = validatePhone(formData.phone);
     const isPickOrDeliveryValid = formData.pickOrDelivery !== "";
     const isNamed = formData.name !== "";
-    return isPhoneValid && isPickOrDeliveryValid && isNamed;
+    return isPhoneValid && isPickOrDeliveryValid && isNamed && !loading;
   };
 
   useEffect(() => {
-    setDisabled(!isFormValid());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setDisabled(!isFormValid.current());
   }, [formData]);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const Dialogs = () => {
           render: error,
           type: "error",
           isLoading: false,
-          autoClose: 3000,
+          autoClose: 1000,
         });
         toastIdRef.current = null;
       }
@@ -74,7 +74,6 @@ const Dialogs = () => {
 
   return (
     <Dialog>
-      <ToastContainer className="text-lg" rtl />
       <DialogTrigger
         className="rounded-full border-2 border-transparent bg-transparent text-gradient font-bold px-6 py-3 shadow-lg hover:shadow-xl transition-shadow mx-auto
 "
@@ -82,6 +81,8 @@ const Dialogs = () => {
         أطلب الان
       </DialogTrigger>
       <DialogContent>
+        {" "}
+        <ToastContainer className="text-lg z-50" rtl />
         <DialogHeader>
           <DialogTitle className="text-center">قم بتعبئة الحقل</DialogTitle>
 

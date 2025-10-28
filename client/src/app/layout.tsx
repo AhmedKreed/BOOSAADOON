@@ -18,8 +18,10 @@ const cairo = Cairo({
 
 const RootLayout = ({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) => {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
@@ -27,6 +29,7 @@ const RootLayout = ({
         <OrderProvider>
           <main className="flex flex-col justify-between min-h-screen relative">
             {children}
+            {modal}
             <OrderCart />
           </main>
         </OrderProvider>

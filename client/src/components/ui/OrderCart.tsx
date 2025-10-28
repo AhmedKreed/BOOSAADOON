@@ -13,7 +13,7 @@ const OrderCart = () => {
   return (
     <>
       {
-        <div className="absolute right-8 bottom-8 flex flex-col space-y-4">
+        <div className="fixed z-50 right-8 bottom-8 flex flex-col space-y-4">
           {pathname !== "/order" ? (
             !order.isEmpty && (
               <Link

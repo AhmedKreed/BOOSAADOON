@@ -11,8 +11,6 @@ import { OrderState, Meal } from "@/types/index";
 const CartOrders = () => {
   const { order, setOrder } = useContext(OrderContext);
 
-  console.log(order.fullPrice);
-
   const addMeal = (meals: Meal) => {
     setOrder((prevOrder: OrderState): OrderState => {
       const mealIndex = prevOrder.meals.findIndex(
@@ -70,52 +68,50 @@ const CartOrders = () => {
   };
 
   return (
-    <div className="relative min-h-screen py-10 px-5 bg-custom-pattern">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-3xl font-bold text-gradient mb-5 text-center">
-          طلباتك
-        </h1>
-        {order.meals.length > 0 ? (
-          <div className="space-y-4">
-            {order.meals.map((item: Meal, i: number) => (
-              <div
-                key={item.meal + i}
-                className="flex justify-between items-center border-b pb-4"
-              >
-                <p className="text-lg font-medium">{item.meal}</p>
-                <div className="flex items-center gap-4">
-                  <button></button>
-                  <Image
-                    src={icon1}
-                    alt={"add"}
-                    width={20}
-                    height={20}
-                    onClick={() => addMeal(item)}
-                  />
-                  <p>{item.quantity}</p>
-                  <Image
-                    src={icon2}
-                    alt={"minus"}
-                    width={20}
-                    height={20}
-                    onClick={() => removeMeal(item.meal)}
-                  />
-                </div>
-                <p className="text-lg font-semibold text-gradient">
-                  {item.price} د.ل
-                </p>
+    <div className="max-w-4xl min-w-80  mx-auto bg-bg shadow-lg rounded-lg p-6">
+      <h1 className="text-3xl font-bold text-gradient mb-5 text-center">
+        طلباتك
+      </h1>
+      {order.meals.length > 0 ? (
+        <div className="space-y-4">
+          {order.meals.map((item: Meal, i: number) => (
+            <div
+              key={item.meal + i}
+              className="flex justify-between items-center border-b pb-4"
+            >
+              <p className="text-lg font-medium w-8">{item.meal}</p>
+              <div className="flex items-center gap-4">
+                <button></button>
+                <Image
+                  src={icon1}
+                  alt={"add"}
+                  width={20}
+                  height={20}
+                  onClick={() => addMeal(item)}
+                />
+                <p className="w-4">{item.quantity}</p>
+                <Image
+                  src={icon2}
+                  alt={"minus"}
+                  width={20}
+                  height={20}
+                  onClick={() => removeMeal(item.meal)}
+                />
               </div>
-            ))}
-            <div className="w-full flex justify-center items-center">
-              <Dialogs />
+              <p className="text-lg font-semibold text-gradient">
+                {item.price} د.ل
+              </p>
             </div>
+          ))}
+          <div className="w-full flex justify-center items-center">
+            <Dialogs />
           </div>
-        ) : (
-          <p className="text-center text-lg text-gray-500">
-            لا توجد طلبات حاليا.
-          </p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p className="text-center text-lg text-gray-600">
+          لا توجد طلبات حاليا.
+        </p>
+      )}
     </div>
   );
 };
