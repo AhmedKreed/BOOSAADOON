@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -35,7 +34,6 @@ const AlertDialogs = ({
   setLoading: Dispatch<SetStateAction<boolean>>;
 }) => {
   const { order, setOrder } = useContext(OrderContext);
-  const router = useRouter();
   const data = {
     ...formData,
     meals: order.meals,
@@ -67,8 +65,7 @@ const AlertDialogs = ({
         meals: [],
         fullPrice: 0,
       });
-
-      router.replace("/" + result.id);
+      window.location.replace("/" + result.id);
     } catch {
       setError("حدث خطأ نرجو اعادة المحاولة");
     } finally {
