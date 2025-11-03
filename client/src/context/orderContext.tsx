@@ -3,8 +3,12 @@ import { createContext, useEffect } from "react";
 import { PropsWithChildren, useState } from "react";
 import { OrderState } from "@/types/index";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const OrderContext = createContext<any>(undefined);
+type OrderContextType = {
+  order: OrderState;
+  setOrder: React.Dispatch<React.SetStateAction<OrderState>>;
+};
+
+export const OrderContext = createContext<OrderContextType | null>(null);
 
 export const OrderProvider = ({ children }: PropsWithChildren<object>) => {
   const [order, setOrder] = useState<OrderState>({

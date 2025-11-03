@@ -88,6 +88,7 @@ const CartOrders = () => {
                   width={20}
                   height={20}
                   onClick={() => addMeal(item)}
+                  className="cursor-pointer"
                 />
                 <p className="w-4">{item.quantity}</p>
                 <Image
@@ -96,6 +97,7 @@ const CartOrders = () => {
                   width={20}
                   height={20}
                   onClick={() => removeMeal(item.meal)}
+                  className="cursor-pointer"
                 />
               </div>
               <p className="text-lg font-semibold text-gradient">

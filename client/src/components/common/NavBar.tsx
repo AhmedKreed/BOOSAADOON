@@ -10,7 +10,13 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false);
   return (
     <nav className="h-32 flex justify-between items-center section relative">
-      <Image src={logo} alt={"logo"} className="h-20 sm:h-24 md:h-32 w-auto" />
+      <Link href="/">
+        <Image
+          src={logo}
+          alt={"logo"}
+          className="h-20 sm:h-24 md:h-32 w-auto cursor-pointer"
+        />
+      </Link>
       {/* DESKTOP */}
       <div className="flex gap-12 max-md:hidden">
         {NAV.map((item) => (

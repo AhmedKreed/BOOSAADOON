@@ -3,7 +3,7 @@ import CopyButton from "@/components/ui/meniUi/CopyButton";
 import { Key } from "react";
 
 const Page = async ({ params }) => {
-  const { orders } = (await params) || {};
+  const { orders } = await params;
 
   let orderData = null;
   let statusText = "حالة غير معروفة";
